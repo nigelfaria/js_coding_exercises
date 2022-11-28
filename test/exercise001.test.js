@@ -21,6 +21,12 @@ describe("capitalize", () => {
   test("does nothing if the string is already capitalized", () => {
     expect(capitalize("Hello")).toBe("Hello");
   });
+  test("does nothing if the string is empty", () => {
+    expect(capitalize("")).toBe("");
+  });
+  test("does nothing if it starts with a number ", () => {
+    expect(capitalize("5abc")).toBe("5abc");
+  });
 });
 
 describe("generateInitials", () => {
