@@ -126,6 +126,16 @@ describe("reverseAllWords", () => {
       reverseAllWords(["jest", "mocha", "rspec", "jasmine", "selenium"])
     ).toEqual(["tsej", "ahcom", "cepsr", "enimsaj", "muineles"]);
   });
+
+  test("empty array", () => {
+    expect(reverseAllWords([])).toEqual([]);
+  });
+
+  test("empty words in array", () => {
+    expect(reverseAllWords(["", "hell"])).toEqual(["","lleh"]);
+  });
+
+
 });
 
 describe("countLinuxUsers", () => {
