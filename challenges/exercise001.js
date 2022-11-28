@@ -9,10 +9,21 @@ export function capitalize(word) {
   }
 }
 
-export function generateInitials(firstName, lastName) {
-  if (firstName === undefined) throw new Error("firstName is required");
+export function generateInitials(firstName, lastName) {  
+  if (firstName === undefined) throw new Error("firstName is required"); 
   if (lastName === undefined) throw new Error("lastName is required");
-  // Add your code here!
+  let retString = "";
+  if(firstName.length > 0){
+    retString += firstName.charAt(0);
+  }
+  if (firstName.length> 0 && lastName.length >0){
+    retString +='.'
+  }
+
+  if(lastName.length > 0){
+    retString += lastName.charAt(0);
+  }
+  return retString;
 }
 
 export function addVAT(originalPrice, vatRate) {

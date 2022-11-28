@@ -33,6 +33,16 @@ describe("generateInitials", () => {
   test("returns the initials of a firstname and surname", () => {
     expect(generateInitials("Frederic", "Bonneville")).toBe("F.B");
   });
+  test("returns empty string if both names are empty", () => {
+    expect(generateInitials("", "")).toBe("");
+  });
+  test("returns single initial with no . if last name is empty", () => {
+    expect(generateInitials("Frederic", "")).toBe("F");
+  });
+  test("returns single initial with no . if first name is empty", () => {
+    expect(generateInitials("", "Bonneville")).toBe("B");
+  });
+
 });
 
 describe("addVAT", () => {
