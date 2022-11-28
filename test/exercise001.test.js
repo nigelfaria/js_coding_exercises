@@ -106,6 +106,14 @@ describe("reverseWord", () => {
       "?siht od ot tnaw neve uoy dluow yhw"
     );
   });
+  test("returns blank string on blank", () => {
+    expect(reverseWord("")).toBe("");
+  });
+  test("returns single letter word, reversed", () => {
+    expect(reverseWord("f")).toBe("f");
+  });
+
+
 });
 
 describe("reverseAllWords", () => {
