@@ -21,6 +21,14 @@ describe("getFillings", () => {
       accompaniment: "wedges",
     };
     expect(getFillings(sandwich2)).toEqual(["smoked salmon", "dill"]);
+
+    const sandwich3 = {
+      bread: "Rye",
+      fillings: [],
+      accompaniment: "wedges",
+    };
+    expect(getFillings(sandwich3)).toEqual([]);
+
   });
 });
 
@@ -71,6 +79,11 @@ describe("getBusNumbers", () => {
   test("returns the correct number of buses for larger numbers of people", () => {
     expect(getBusNumbers(43728)).toBe(1094);
   });
+  test("returns 0 for incorrect input", () => {
+    expect(getBusNumbers(-1)).toBe(0);
+    expect(getBusNumbers("asdfads")).toBe(0);
+  });
+
 });
 
 describe("countSheep", () => {
