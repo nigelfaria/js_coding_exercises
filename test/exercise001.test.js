@@ -132,7 +132,7 @@ describe("reverseAllWords", () => {
   });
 
   test("empty words in array", () => {
-    expect(reverseAllWords(["", "hell"])).toEqual(["","lleh"]);
+    expect(reverseAllWords(["", "hell"])).toEqual(["", "lleh"]);
   });
 
 
