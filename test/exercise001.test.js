@@ -169,6 +169,11 @@ describe("getMeanScore", () => {
     expect(getMeanScore([88, 86, 93])).toBe(89);
   });
 
+  test("empty array", () => {
+    expect(getMeanScore([])).toBe(0);
+  });
+
+
   test("returns the mean to 2 decimal places", () => {
     expect(getMeanScore([24, 44, 56, 11, 12, 17, 34])).toBe(28.29);
   });

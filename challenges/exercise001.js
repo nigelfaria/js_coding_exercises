@@ -81,15 +81,34 @@ export function reverseAllWords(words) {
 
 export function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  // Add your code here!
+  const linux = "Linux";
+  return users.filter( user => user.type == linux).length;
 }
 
 export function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  if (scores.length ==0){
+    return 0;
+  }
+  let sum = scores.reduce((total, item)=> total+item);
+  let mean = Math.round(sum/scores.length*100)/100;
+  if (mean %1==0){
+    mean = parseInt(mean);
+  }
+  return mean;
 }
 
 export function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  // Add your code here!
+  let toRet = "";
+  if (n %3 == 0){
+    toRet += 'fizz';
+  }
+  if (n %5 == 0){
+    toRet += 'buzz';
+  }
+  if(toRet.length ==0){
+    toRet = n;
+  }
+  return toRet;
 }
