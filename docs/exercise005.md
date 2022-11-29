@@ -73,7 +73,7 @@ const isEven = (a) => {
 Can be re-written as:
 
 ```javascript
-const isEven = (a) => {
+const isEven = a => {
   return a % 2 === 0;
 };
 ```
@@ -81,7 +81,7 @@ const isEven = (a) => {
 And with implicit return as well:
 
 ```javascript
-const isEven = (a) => a % 2 === 0;
+const isEven = a => a % 2 === 0;
 ```
 
 We love ES6 arrow functions and hope you do too! 💜
