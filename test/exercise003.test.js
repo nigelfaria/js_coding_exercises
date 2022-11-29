@@ -9,6 +9,7 @@ import {
 describe("camelCaseWords", () => {
   test("camel cases a single word (i.e. no capital letter at beginning)", () => {
     expect(camelCaseWords(["my"])).toBe("my");
+    expect(camelCaseWords(["My"])).toBe("my");
   });
 
   test("camel cases two words (i.e. second word is capitalized)", () => {
