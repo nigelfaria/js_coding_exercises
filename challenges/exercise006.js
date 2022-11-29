@@ -6,6 +6,8 @@
  */
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr)) throw new Error("arr is required");
+  return arr.reduce((sum, number) => (number % 3 == 0 || number % 5 == 0 ? sum + number : sum), 0);
 };
 
 /**
@@ -15,6 +17,9 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  if (str == "") return false;
+  const notDnaRegex = /[^ACGT]/g
+  return !notDnaRegex.test(str);
 };
 
 /**
@@ -24,6 +29,14 @@ export const isValidDNA = (str) => {
  */
 export const getComplementaryDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
+  const dnaMap = new Map([['A', 'T'], ['T', 'A'], ['C', 'G'], ['G', 'C']]);
+  let retString = "";
+  if (isValidDNA(str)) {
+    for (let i = 0; i < str.length; i++) {
+      retString += dnaMap.get(str[i]);
+    }
+  }
+  return retString;
 };
 
 /**
@@ -33,6 +46,17 @@ export const getComplementaryDNA = (str) => {
  */
 export const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
+  let isPrime = false;
+  if (Number.isInteger(n) && n > 1) {
+    isPrime = true;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i == 0) {
+        isPrime = false;
+        break;
+      }
+    }
+  }
+  return isPrime;
 };
 
 /**
@@ -49,6 +73,17 @@ export const isItPrime = (n) => {
 export const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  let retMatrix = [];
+  if (Number.isInteger(n) && n > 0) {
+    for (let i = 0; i < n; i++) {
+      let innerArr = [];
+      for (let j = 0; j < n; j++) {
+        innerArr.push(fill);
+      }
+      retMatrix.push(innerArr);
+    }
+  }
+  return retMatrix;
 };
 
 /**
@@ -66,4 +101,11 @@ export const createMatrix = (n, fill) => {
 export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+
+  if (staff.length > 0 && typeof (day) == 'string') {
+    return staff.reduce((staffCount, personRota) => staffCount + personRota.rota.filter(aDay => aDay == day).length, 0) > 2;
+  }
+  else {
+    return false;
+  }
 };
