@@ -6,7 +6,7 @@ import {
   addressLookUp,
 } from "../challenges/exercise008-bonus-activity";
 
-describe("colours", () => {
+describe("printColours", () => {
   test("returns a list of colours", () => {
     const colours = ["red", "orange", "green"];
     expect(printColours(colours)).toEqual(colours);
