@@ -8,10 +8,7 @@ export function getFillings(sandwich) {
 
 export function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
-  if (person.city && person.city == "Manchester") {
-    return true;
-  }
-  return false;
+  return person?.city.toLowerCase() == "manchester";
 }
 
 export function getBusNumbers(people) {
