@@ -50,6 +50,16 @@ describe("isFromManchester", () => {
     };
     expect(isFromManchester(person)).toBe(false);
   });
+
+  test("returns false for bad input", () => {
+    const person = {
+      name: "Anisa",
+      age: 39,
+    };
+    expect(isFromManchester(person)).toBe(false);
+  });
+
+
 });
 
 describe("getBusNumbers", () => {

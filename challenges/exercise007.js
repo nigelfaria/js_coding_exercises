@@ -4,7 +4,7 @@
  */
 export const sumDigits = (n) => {
   if (n === undefined) throw new Error("n is required");
-  if (typeof n !== "number" || n == 0) return 0;
+  if (typeof n !== "number" || n === 0) return 0;
   let num = Math.abs(n);
   let numStr = ('' + num).replace('.', '');
   return numStr.split('').reduce((sum, nChar) => parseInt(sum) + parseInt(nChar));
@@ -74,12 +74,12 @@ export const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
   let toRet = []
-  if (users && users.length > 0) {
+  if (users?.length > 0) {
     users.forEach(user => {
-      if (user && user.username && user.screenTime && user.screenTime.length > 0) {
+      if (user?.screenTime?.length > 0) {
         user.screenTime.forEach(screenTimeObj => {
           if (screenTimeObj) {
-            if (screenTimeObj.date == date) {
+            if (screenTimeObj.date === date) {
               if (screenTimeObj.usage) {
                 if (Object.values(screenTimeObj.usage).reduce((sum, minutes) => sum + minutes, 0) > 100) {
                   toRet.push(user.username);
@@ -141,7 +141,7 @@ export const findWinner = (board) => {
   if (board && board.length > 0) {
     for (let i = 0; i < board.length; i++) {
       for (let j = 0; j < board[i].length; j++) {
-        if (gameSymbols.includes(board[i][j]) || board[i][j] == null) {
+        if (gameSymbols.includes(board[i][j]) || board[i][j] === null) {
           squaresCount++;
         }
         else {
@@ -149,28 +149,28 @@ export const findWinner = (board) => {
         }
       }
     }
-    if (squaresCount == squareCountCheck) {
+    if (squaresCount === squareCountCheck) {
       toRet = null;
       let result = gameSymbols.filter(symbol => {
         for (let i = 0; i < board.length; i++) {
-          if (symbol == board[i][0] && symbol == board[i][1] && symbol == board[i][2]) {
+          if (symbol === board[i][0] && symbol === board[i][1] && symbol === board[i][2]) {
             return true;
           }
         }
         for (let i = 0; i < board.length; i++) {
-          if (symbol == board[0][i] && symbol == board[1][i] && symbol == board[2][i]) {
+          if (symbol === board[0][i] && symbol === board[1][i] && symbol === board[2][i]) {
             return true;
           }
         }
-        if (symbol == board[0][0] && symbol == board[1][1] && symbol == board[2][2]) {
+        if (symbol === board[0][0] && symbol === board[1][1] && symbol === board[2][2]) {
           return true;
         }
-        if (symbol == board[2][0] && symbol == board[1][1] && symbol == board[0][2]) {
+        if (symbol === board[2][0] && symbol === board[1][1] && symbol === board[0][2]) {
           return true;
         }
 
       });
-      if (result.length == 1) return result[0]
+      if (result.length === 1) return result[0]
     }
   }
   return toRet;

@@ -7,7 +7,7 @@
 export const sumMultiples = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
   if (!Array.isArray(arr)) throw new Error("arr is required");
-  return arr.reduce((sum, number) => (number % 3 == 0 || number % 5 == 0 ? sum + number : sum), 0);
+  return arr.reduce((sum, number) => (number % 3 === 0 || number % 5 === 0 ? sum + number : sum), 0);
 };
 
 /**
@@ -17,7 +17,7 @@ export const sumMultiples = (arr) => {
  */
 export const isValidDNA = (str) => {
   if (str === undefined) throw new Error("str is required");
-  if (str == "") return false;
+  if (str === "") return false;
   const notDnaRegex = /[^ACGT]/g
   return !notDnaRegex.test(str);
 };
@@ -50,7 +50,7 @@ export const isItPrime = (n) => {
   if (Number.isInteger(n) && n > 1) {
     isPrime = true;
     for (let i = 2; i <= Math.sqrt(n); i++) {
-      if (n % i == 0) {
+      if (n % i === 0) {
         isPrime = false;
         break;
       }
@@ -102,8 +102,8 @@ export const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
 
-  if (staff.length > 0 && typeof (day) == 'string') {
-    return staff.reduce((staffCount, personRota) => staffCount + personRota.rota.filter(aDay => aDay == day).length, 0) > 2;
+  if (staff.length > 0 && typeof (day) === 'string') {
+    return staff.reduce((staffCount, personRota) => staffCount + personRota.rota.filter(aDay => aDay === day).length, 0) > 2;
   }
   else {
     return false;
